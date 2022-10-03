@@ -14,7 +14,7 @@ const modalBtn = document.querySelectorAll(".modal-btn");
 const modalBody = document.querySelector(".modal-body");
 const formData = document.querySelectorAll(".formData");
 const submitBtn = document.querySelector(".btn-submit");
-const closeCross = document.querySelector(".close");
+const closeBtn = document.querySelector(".close");
 const thankYou = document.querySelector("#thank-you");
 const content = document.querySelector(".content");
 const body = document.querySelector("body");
@@ -23,7 +23,6 @@ const formElement = document.querySelector(".modal-body form");
 const errorMessages = document.querySelectorAll(".error-msg");
 const backDrop = document.getElementById("backdrop")
 const checkBox1 = document.getElementById("checkbox1");
-const closeBtn = document.querySelector(".btn-close")
 
 // regex
 const regexFirstLastName = /^[a-zA-Z\u00e0-\u00ff]+(([- ])?[a-zA-Z\u00e0-\u00ff])+$/;
@@ -55,7 +54,7 @@ function launchModal() {
 }
 
 // close button 
-closeCross.addEventListener("click", function() {
+closeBtn.addEventListener("click", function() {
   if(thankYou.style.display = "block") {
     formElement.reset();
     closeModal();
@@ -83,6 +82,7 @@ backDrop.addEventListener("click", closeModal);
 function closeModal() {
   modalBg.style.display = "none";
   body.style.overflow = "auto";
+  clearErrors();
 }
 
 // shows if errors were made by users
@@ -103,6 +103,13 @@ function showValidation(input, isValid) {
     input.style.border = "4px solid red"; // => Est activé par défaut une fois le formulaire validé ,a voir
   }
   
+}
+
+// Clear trigger borders after validation 
+
+function clearErrors(){
+  const inputs = documents.querySelectorAll(formData)
+  inputs.forEach(input => { input.value ="";});
 }
 
 // inputs validation
@@ -232,10 +239,10 @@ function stateCheckBox() {
 
 
 
-formElement.addEventListener("submit", handleForm);
+formElement.addEventListener("submit", handleForm); // A revoir 
 
 
- // checks if there's still an error in form and displays the "thank you" message if there's none + add a new closing button on the end (avoid double handleform validation when finished)
+ // checks if there's still an error in form and displays the "thank you" message if there's none
 
 
 function handleForm(e) {
@@ -248,17 +255,16 @@ function handleForm(e) {
   else {
 
     formElement.reset();
+    submitBtn.style.backgroundColor = "#FE142F";
     formData.forEach(form => {
       form.style.display = "none"
     });
     thankYou.style.display = "block";
-    closeBtn.style.display = "block";
-    submitBtn.style.display = "none";
-    closeBtn.addEventListener("click", function() {
+    submitBtn.value = "Fermer";
+    submitBtn.addEventListener("click", function() {
       modalBg.style.display = "none";
       thankYou.style.display = "none";
-      closeBtn.style.display = "none";
-      submitBtn.style.display = "block";
+      submitBtn.value = "C'est parti!";
       formData.forEach(form => {
         form.style.display = "block"
       });

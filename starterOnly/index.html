@@ -52,7 +52,8 @@
       </div>
 
       <div class="bground">
-        <div class="backdrop" id="backdrop"></div>
+        <!-- Backdrop : Can leave modal by clicking somewhere else -->
+        <div class="backdrop" id="backdrop"></div> 
         <div class="content">
           <span class="close"></span>
           <div class="modal-body">
@@ -214,13 +215,18 @@
               <div id="thank-you">
                 Merci pour votre inscription
               </div>
+              <!-- Input revoir -->
               <input
-                class="btn-submit"
-                type="submit"
-                class="button"
-                value="C'est parti"
+              class="btn-submit"
+              type="submit"
+              value="C'est parti"
               />
             </form>
+            <input
+            class="btn-close"
+            type="button"
+            value="Fermer"
+            />
           </div>
         </div>
       </div>
