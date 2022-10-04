@@ -1,4 +1,3 @@
-// V2 Test for innerhtml span (V1 got error msg directly in HTML)
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -85,7 +84,6 @@ function closeModal() {
   body.style.overflow = "auto";
 }
 
-// shows if errors were made by users
 
 //displays an error-message if `input` element is invalid
 
@@ -100,7 +98,7 @@ function showValidation(input, isValid) {
   }
   else {
     errorElement.style.display = "block"; 
-    input.style.border = "4px solid red"; // => Est activé par défaut une fois le formulaire validé ,a voir
+    input.style.border = "4px solid red";
   }
   
 }
@@ -188,7 +186,7 @@ function inputValidation(input) {
         }
       }
 
-      // isErrorInInput takes the opposite boolean value   // of isAtLeastOneRadioChecked
+      // isErrorInInput takes the opposite boolean value of isAtLeastOneRadioChecked
     
       isErrorInInput = !isAtLeastOneRadioChecked;
       showValidation(input, isAtLeastOneRadioChecked);
