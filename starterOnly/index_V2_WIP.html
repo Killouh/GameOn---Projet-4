@@ -73,9 +73,8 @@
                   name="first"
                   max="25"
                 />
-                <span class="error-msg">Entrez un prénom valide (Deux caractères minimum).</span>
+                <span class="error-msg first"></span>
               </div>
-              
 
               <div
                 class="formData">
@@ -86,7 +85,7 @@
                   id="last"
                   name="last"
                 />
-                <span class="error-msg">Entrez un nom valide (Deux caractères minimum).</span>
+                <span class="error-msg last">Entrez un nom valide (Deux caractères minimum).</span>
               </div>
 
               <div
@@ -98,7 +97,7 @@
                   id="email"
                   name="email"
                 />
-                <span class="error-msg">Entrez un email valide (xxx@xxx.xx).</span>
+                <span class="error-msg email"></span>
               </div>
 
               <div
@@ -110,14 +109,14 @@
                   id="birthdate"
                   name="birthdate"
                 />
-                <span class="error-msg">Entrez une date de naissance valide. (Age minimum : 15 ans)</span>
+                <span class="error-msg birthdate">Entrez une date de naissance valide. (Age minimum : 15 ans)</span>
               </div>
 
               <div
                 class="formData">
                 <label>À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                 <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
-                <span class="error-msg">Entrez un nombre de tournois valide (Entre 0 et 100).</span>
+                <span class="error-msg tournament">Entrez un nombre de tournois valide (Entre 0 et 100).</span>
               </div>
               
               <div
@@ -189,7 +188,7 @@
                   <span class="checkbox-icon"></span>
                   Portland</label
                 >
-                <span class="error-msg">Choisissez un tournoi.</span>
+                <span class="error-msg checkbox">Choisissez un tournoi.</span>
               </div>
 
               <div
@@ -205,7 +204,7 @@
                   <span class="checkbox-icon"></span>
                   J'ai lu et accepté les conditions d'utilisation.
                 </label>
-                <span class="error-msg">Vous devez accepter les conditions d'utilisation.</span>
+                <span class="error-msg accept">Vous devez accepter les conditions d'utilisation.</span>
                 <input class="checkbox-input" type="checkbox" id="checkbox2" />
                 <label class="checkbox2-label" for="checkbox2">
                   <span class="checkbox-icon"></span>
@@ -216,11 +215,9 @@
               <div id="thank-you">
                 Merci pour votre inscription
               </div>
-              <!-- Input revoir -->
               <input
                 class="btn-submit"
-                
-                class="button"
+                type="submit"
                 value="C'est parti"
               />
             </form>
@@ -233,6 +230,7 @@
         Copyright 2014 - 2022, GameOn Inc.
       </p>
     </footer>
-    <script src="modal_V2_WIP.js"></script>
+    <script src="const.js"></script>
+    <script src="modal_V2_WIP.js" defer></script>
   </body>
 </html>

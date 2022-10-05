@@ -1,4 +1,4 @@
-// V2 Test for innerhtml span (V1 got error msg directly in HTML)
+// Inner Error message with Const.js dictionnary
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -21,8 +21,11 @@ const body = document.querySelector("body");
 const everyFormInputs = document.querySelectorAll(".formData input");
 const formElement = document.querySelector(".modal-body form");
 const errorMessages = document.querySelectorAll(".error-msg");
-const backDrop = document.getElementById("backdrop")
+const backDrop = document.getElementById("backdrop");
 const checkBox1 = document.getElementById("checkbox1");
+
+
+
 
 // regex
 const regexFirstLastName = /^[a-zA-Z\u00e0-\u00ff]+(([- ])?[a-zA-Z\u00e0-\u00ff])+$/;
@@ -89,7 +92,7 @@ function closeModal() {
 
 //displays an error-message if `input` element is invalid
 
-function showValidation(input, isValid) {
+function showValidation(input, isValid, errorMessage = "") {
 
   // error trigger message
   const errorElement = input.parentNode.querySelector(".error-msg")
@@ -97,13 +100,16 @@ function showValidation(input, isValid) {
   if(isValid) {
     errorElement.style.display = "none"; 
     input.style.border = "none";
+    errorElement.innerHTML = "";
   }
   else {
     errorElement.style.display = "block"; 
-    input.style.border = "4px solid red"; // => Est activé par défaut une fois le formulaire validé ,a voir
+    input.style.border = "4px solid red";
+    errorElement.innerHTML = errorMessage;
   }
-  
+
 }
+
 
 // Clear trigger borders after validation 
 
@@ -122,7 +128,7 @@ everyFormInputs.forEach(input => {
 
 function inputValidation(input) {
 
-  // creation of a boolean to check if there is an error in at least one input
+  // creation of a boolean to check if there is an error in at least one input // Ajouter les errormessage
 
   let isErrorInInput = false;
 
@@ -131,17 +137,19 @@ function inputValidation(input) {
       showValidation(input, true)
     }
     else {
-      showValidation(input, false)
+      console.log(errorMessage.email.verification)
+      showValidation(input, false, errorMessage.email.verification)
       isErrorInInput = true;
     }
   }
 
    else if(input.getAttribute("type") === "text") {
       if(input.value.length >= 2 && regexFirstLastName.test(input.value)) {
-        showValidation(input, true)
+        showValidation(input, true,)
+        
       }
       else {
-        showValidation(input, false)
+        showValidation(input, false, errorMessage.fullname.verification)
         isErrorInInput = true;
       }
     }
@@ -166,7 +174,7 @@ function inputValidation(input) {
         showValidation( input, true);
       }
       else {
-        showValidation( input, false);
+        showValidation( input, false, errorMessage.birthdate.verification);
         isErrorInInput = true;
       }
     }
@@ -176,7 +184,7 @@ function inputValidation(input) {
         showValidation( input, true)
       }
       else {
-        showValidation( input, false)
+        showValidation( input, false, errorMessage.tournament.verification)
         isErrorInInput = true;
       }
     }
@@ -198,7 +206,7 @@ function inputValidation(input) {
       // isErrorInInput takes the opposite boolean value   // of isAtLeastOneRadioChecked
     
       isErrorInInput = !isAtLeastOneRadioChecked;
-      showValidation(input, isAtLeastOneRadioChecked);
+      showValidation(input, isAtLeastOneRadioChecked, errorMessage.radio.verification);
     }
     
     else if(input.getAttribute("type") === "checkbox" && input.hasAttribute("data-required")) {
@@ -206,7 +214,7 @@ function inputValidation(input) {
         showValidation( input, true)
       }
       else {
-        showValidation( input, false)
+        showValidation( input, false,  errorMessage.check.verification)
         isErrorInInput = true;
       }
     }
@@ -239,7 +247,7 @@ function stateCheckBox() {
 
 
 
-formElement.addEventListener("submit", handleForm); // A revoir 
+formElement.addEventListener("submit", handleForm); 
 
 
  // checks if there's still an error in form and displays the "thank you" message if there's none
