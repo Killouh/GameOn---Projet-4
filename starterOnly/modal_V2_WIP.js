@@ -1,4 +1,4 @@
-// Inner Error message with Const.js dictionnary
+// Inner Error message with Const.js dictionnary (Line 131)
 function editNav() {
   var x = document.getElementById("myTopnav");
   if (x.className === "topnav") {
@@ -128,7 +128,7 @@ everyFormInputs.forEach(input => {
 
 function inputValidation(input) {
 
-  // creation of a boolean to check if there is an error in at least one input // Ajouter les errormessage
+  // creation of a boolean to check if there is an error in at least one input  + Error message from céonst.js
 
   let isErrorInInput = false;
 

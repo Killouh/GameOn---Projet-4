@@ -141,7 +141,7 @@ function inputValidation(input) {
     else if(input.getAttribute("type") === "date") {
       let dateSelected = new Date(document.querySelector(".formData #birthdate").value);
 
-      //Calcul  minimum age
+      //Calcul  minimum age (15 Years Old)
       function getAge(dateSelected) {
         
         let age = today.getFullYear() - dateSelected.getFullYear();
