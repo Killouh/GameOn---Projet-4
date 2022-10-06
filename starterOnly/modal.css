@@ -11,7 +11,6 @@
 /* Landing Page */
 
 body {
-  margin: 0;
   display: flex;
   flex-direction: column;
   font-family: var(--font-default);
@@ -33,10 +32,13 @@ p {
   position: relative;
   margin-bottom: 30px;
 }
+
+
 .header-logo {
     position: relative;
     left: 30px;
 }
+
 .main-navbar {
     position: absolute;
     right: 10px;
@@ -94,9 +96,13 @@ p {
   .topnav a.icon:hover {
     color: white;
   }
+  .header-logo{
+    display: flex;
+    width: 100%;
+  }
   .topnav.responsive {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     position: relative;
   }
   .topnav.responsive .icon {
@@ -156,7 +162,7 @@ main {
   background: #fe142f;
   display: flex;
   margin: auto;
-  padding: 2em;
+  
   color: #fff;
   padding: 0.75rem 2.5rem;
   border-radius: 1rem;
